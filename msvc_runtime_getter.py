@@ -29,7 +29,7 @@ class MSVCRuntimeGetter:
 
         return msvc_version
     
-    def __get_msvc_runtime(self, dependents_info : str) -> str:
+    def __get_msvc_runtime(self, dependents_info: str) -> str:
         """ Return the version of the VC runtime used by the executable from the dumpbin output """
         dependents_info = dependents_info.lower()
 

@@ -3,14 +3,14 @@ import subprocess
 
 # Class to run dumpbin on the specified file
 class Dumpbin:
-    def __init__(self, dumpbin_path : str = None):
+    def __init__(self, dumpbin_path: str = None):
         """ Initialize the dumpbin class
         Args:
             dumpbin_path (str, optional): The path to the dumpbin.exe file. Defaults to None.
         """
         self.__search_dumpbin(dumpbin_path)
 
-    def __search_dumpbin(self, dumpbin_path : str = None):
+    def __search_dumpbin(self, dumpbin_path: str = None):
         """ Search for the dumpbin.exe file in the default locations if not provided
         Args:
             dumpbin_path (str, optional): The path to the dumpbin.exe file. Defaults to None.
@@ -51,7 +51,7 @@ class Dumpbin:
         # Dumpbin not found
         raise FileNotFoundError('dumpbin.exe not found, Please provide the path to dumpbin.exe')
 
-    def __get_dumpbin_cmd(self, file_path : str, options : str = None) -> str:
+    def __get_dumpbin_cmd(self, file_path: str, options: str = None) -> str:
         """ Return the command to run dumpbin on the specified executable 
         Args:
             file_path (str): The path to the file
@@ -64,7 +64,7 @@ class Dumpbin:
         else:
             return f'"{self.dumpbin_path}" {options} {file_path}'
     
-    def run(self, file_path : str, options : str = None) -> str:
+    def run(self, file_path: str, options: str = None) -> str:
         """ Run the dumpbin command on the specified file
         Args:
             file_path (str): The path to the file
@@ -79,7 +79,7 @@ class Dumpbin:
         out_txt = subprocess.run(dumpbin_cmd, capture_output=True).stdout
         return str(out_txt)
     
-    def run_dependents(self, file_path : str) -> str:
+    def run_dependents(self, file_path: str) -> str:
         """ Get the dependents information of the file 
         Args:
             file_path (str): The path to the file
